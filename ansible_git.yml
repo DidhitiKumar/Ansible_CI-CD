@@ -32,8 +32,8 @@
     
   - name: Clone a github repository
     git:
-      #repo: https://github.com/DidhitiKumar/Ansible_CI-CD.git
-      repo: https://github.ibm.com/Boomerang-Delivery/queuedepthmonitoring
+      repo: https://github.com/DidhitiKumar/Ansible_CI-CD.git
+      #repo: https://github.ibm.com/Boomerang-Delivery/queuedepthmonitoring
       dest: /var/lib/awx/projects/automation
       clone: yes
       update: yes
