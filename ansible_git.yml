@@ -37,3 +37,5 @@
       dest: /var/lib/awx/projects/automation
       clone: yes
       update: yes
+  - name: Run maven install
+    shell: "mvn clean install"
