@@ -11,7 +11,7 @@
     get_url: dest=/opt/apache-maven-3.8.5-bin.tar.gz url=http://dlcdn.apache.org/maven/maven-3/3.8.5/binaries/apache-maven-3.8.5-bin.tar.gz
   
   - name: Unpack Maven3
-    action: command creates=/opt/maven chdir=/opt tar zxvf /opt/apache-maven-3.8.5-bin.tar.gz
+    action: command creates=/opt/maven chdir=/opt tar zxvf /opt/apache-maven-3.8.5-bin.tar.gz warn=False
 
   - name: Create Maven3 directory link
     file: path=/opt/maven src=/opt/apache-maven-3.8.5 state=link
@@ -28,12 +28,12 @@
   - name: Remove Maven3 archive
     file: path=/opt/apache-maven-3.8.5-bin.tar.gz state=absent
     
-#  - name: Clone a github repository
- #   git:
-  #    #repo: https://github.com/DidhitiKumar/Ansible_CI-CD.git
-   #   repo: https://github.ibm.com/Boomerang-Delivery/queuedepthmonitoring.git
-    #  dest: /var/lib/awx/projects/automation
-     # clone: yes
-      #update: yes
+  - name: Clone a github repository
+    git:
+      #repo: https://github.com/DidhitiKumar/Ansible_CI-CD.git
+      repo: https://github.ibm.com/Boomerang-Delivery/queuedepthmonitoring.git
+      dest: /var/lib/awx/projects/automation
+      clone: yes
+      update: yes
   #- name: Run maven install
    # shell: "mvn clean install"
