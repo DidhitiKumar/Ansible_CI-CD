@@ -1,3 +1,15 @@
+- name: Install Java
+  hosts: localhost
+  become: yes
+  gather_facts: true
+  tasks:
+  - name: Update repos
+    yum:
+	  name: "*"
+	  state: latest
+  - name: Installing OpenJDK
+    yum:
+      name: java-1.8.0-openjdk
 - name: Install Maven
   hosts: localhost
   become: yes
