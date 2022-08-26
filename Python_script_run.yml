@@ -3,7 +3,7 @@
 - name: "Python Script run"
   become: true
   gather_facts: false
-  hosts: all
+  hosts: localhost
   strategy: free
   tasks: 
     - name: Run the HelloWorld File
