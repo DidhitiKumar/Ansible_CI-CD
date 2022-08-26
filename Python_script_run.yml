@@ -5,6 +5,8 @@
   hosts: all
   strategy: free
   tasks: 
-    - script: HelloWorld.py
-      register : output
-    - debug: var=output.stdout_lines
+    - name: Run the HelloWorld File
+      shell: python3 HelloWorld.py
+	    register : command_output
+	- debug:
+		      var: command_output.stdout_lines
