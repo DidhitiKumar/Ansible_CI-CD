@@ -7,6 +7,5 @@
   tasks: 
     - name: Run the HelloWorld File
       command: python3 HelloWorld.py
-	  register : result
-	- debug:
-		var: result.stdout
+      register : result
+	- debug: var=result.stdout
