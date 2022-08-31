@@ -12,5 +12,5 @@
     slack:
       domain: bluebuddytesting.slack.com
       token: "T03N99ZN6A2/B040JEPPQCU/kibahLh6tWjVxCUu11Qycl5X"
-      msg: httpd installed
+      msg: Python Script executed
       channel: "#random"
