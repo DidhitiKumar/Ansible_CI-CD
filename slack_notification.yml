@@ -1,6 +1,6 @@
 - name: notify
   become: true
-  gather_facts: false
+  gather_facts: no
   hosts: localhost
   strategy: free
   tasks:
