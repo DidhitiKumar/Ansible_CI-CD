@@ -1,0 +1,19 @@
+-name: notify
+ become: true
+ gather_facts: false
+ hosts: localhost
+ strategy: free
+ tasks:
+ -name: httpd install
+  yum:
+    name: httpd
+	state: present
+  notify: install_httpd_slack
+
+ handlers:
+ -name: installation_httpd_slack
+  slack:
+    domain: bluebuddytesting.slack.com
+    token: "T03N99ZN6A2/B040JEPPQCU/kibahLh6tWjVxCUu11Qycl5X"
+    msg: httpd installed
+    channel: "#random"
