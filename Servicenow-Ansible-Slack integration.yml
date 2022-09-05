@@ -1,7 +1,9 @@
 ---
 - name: Using ServiceNow Collection
-  hosts: localhost
+  become: true
   gather_facts: no
+  hosts: localhost
+  strategy: free
   vars:
     - username: admin
     - password: qDI!k+R49fNa
