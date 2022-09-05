@@ -1,0 +1,33 @@
+---
+- name: Using ServiceNow Collection
+  hosts: localhost
+  gather_facts: no
+  vars:
+    - username: admin
+    - password: qDI!k+R49fNa
+    - keyword: Active
+
+  tasks:
+    - name: Search for incident assigned by description, return specific fields
+      servicenow.servicenow.snow_record_find:
+        username: "{{ username }}"
+        password: "{{ password }}"
+        instance: dev119990
+        table: incident
+        query:
+          AND:
+            equals:
+              active: "True"
+              state: "1"
+            contains:
+              short_description: "{{ keyword }}"
+        return_fields:
+          - sys_id
+          - number
+          - opened_at
+          - short_description
+          - state
+      register: incidents
+    - name: print result
+      debug:
+        msg: "incident: {{ incidents.record }}"
