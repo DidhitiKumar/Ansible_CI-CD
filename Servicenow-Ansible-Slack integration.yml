@@ -5,7 +5,7 @@
   hosts: localhost
   strategy: free
   collections:
-    - servicenow.itsm
+    - servicenow.servicenow
   vars:
     - username: admin
     - password: qDI!k+R49fNa
@@ -13,7 +13,7 @@
 
   tasks:
     - name: Search for incident assigned by description, return specific fields
-      servicenow.itsm.incident:
+      servicenow.servicenow.snow_record_find:
         username: "{{ username }}"
         password: "{{ password }}"
         instance: dev119990
