@@ -4,6 +4,8 @@
   gather_facts: no
   hosts: localhost
   strategy: free
+  collections:
+    - servicenow.servicenow
   vars:
     - username: admin
     - password: qDI!k+R49fNa
@@ -33,12 +35,9 @@
     - name: print result
       debug:
         msg: "incident: {{ incidents.record }}"
-    - name: Notify the result in slack
-      notify: SM1_slack
-      when: short_description == "Work Processes"
-    - name: Notify the result in slack
-      notify: SM2_slack
-      when: short_description == "active users"     
+      notify:
+        - SM1_slack
+        - SM2_slack
   handlers:
   - name: SM1_slack
     slack:
@@ -47,6 +46,7 @@
       msg: To invoke runbook please use utterances like the ones below-
            1. Work Processes 
       channel: "#random"
+      when: short_description == "Work Processes"
   - name: SM2_slack
     slack:
       domain: bluebuddytesting.slack.com
@@ -56,3 +56,4 @@
            2. active users
            3. list online users
       channel: "#random"
+      when: short_description == "active users"
