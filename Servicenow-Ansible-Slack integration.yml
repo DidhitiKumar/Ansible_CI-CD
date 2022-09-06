@@ -13,7 +13,7 @@
 
   tasks:
     - name: Search for incident assigned by description, return specific fields
-      servicenow.itsm.incident_info:
+      servicenow.itsm.incident:
         username: "{{ username }}"
         password: "{{ password }}"
         instance: dev119990
