@@ -10,7 +10,12 @@
     - username: admin
     - password: qDI!k+R49fNa
     - keyword: Active
-
+  pre_tasks:
+   - name: install pysnow
+     pip: 
+      name:
+       - pysnow
+       - requests      
   tasks:
     - name: Search for incident assigned by description, return specific fields
       servicenow.servicenow.snow_record_find:
