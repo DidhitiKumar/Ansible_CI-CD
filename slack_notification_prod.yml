@@ -1,0 +1,16 @@
+- name: notify
+  become: true
+  gather_facts: no
+  hosts: localhost
+  strategy: free
+  tasks:
+  - name: Run a python script
+    shell: python3 HelloWorld.py
+    notify: Python_notification_slack
+  handlers:
+  - name: Python_notification_slack
+    slack:
+      domain: bluebuddytesting.slack.com
+      token: "xoxb-166060193106-3221478633234-JEJZwORmfOuAVGGy55pPaX9X"
+      msg: Python Script executed
+      channel: "#random"
