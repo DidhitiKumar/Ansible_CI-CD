@@ -13,4 +13,4 @@
       domain: bluebuddytesting.slack.com
       token: "xoxb-166060193106-3221478633234-JEJZwORmfOuAVGGy55pPaX9X"
       msg: Python Script executed
-      channel: "#random"
+      channel: "#dw-asible-integration"
